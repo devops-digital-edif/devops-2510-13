@@ -1,5 +1,10 @@
 name: on pull request
-on: pull_request
+on: 
+  pull_request:
+    branches: 
+      - main
+      - dev
+      - qa
 jobs:
   my-job:
     runs-on: ubuntu-latest

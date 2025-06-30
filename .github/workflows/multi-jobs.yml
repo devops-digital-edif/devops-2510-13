@@ -1,5 +1,10 @@
 name: multiple jobs
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      env:
+        type: string
+        required: true
 jobs:
   checkout:
     runs-on: ubuntu-latest

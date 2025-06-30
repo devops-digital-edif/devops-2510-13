@@ -1,7 +1,6 @@
 name: schedule 2min
 on:
-  schedule:
-    - cron: '*/5 * * * *'
+  workflow_dispatch:
 jobs: 
   twoMin-job:
     runs-on: ubuntu-latest

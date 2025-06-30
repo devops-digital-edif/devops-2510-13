@@ -3,8 +3,10 @@ on:
   workflow_dispatch:
     inputs:
       env:
-        type: string
         required: true
+        type: choice
+        options: [dev, qa, prod]
+
 jobs:
   checkout:
     runs-on: ubuntu-latest

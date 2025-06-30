@@ -10,6 +10,12 @@ jobs:
         run: |
           ls -a
           ls .github/workflows
+  test-job:
+    needs: checkout
+    runs-on: ubuntu-latest
+    steps:
+      - name: testing
+        run: echo "testing done"
   build-job:
     needs: checkout
     runs-on: ubuntu-latest

@@ -30,7 +30,9 @@ jobs:
         run: echo "build is completed"
 
   deploy:
-    needs: build-job
+    needs: 
+      - build-job
+      - test-job
     runs-on: ubuntu-latest
     steps:
       - name: Setup NGINX service for Linux/macOS/Windows

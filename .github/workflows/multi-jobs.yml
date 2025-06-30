@@ -1,16 +1,35 @@
 name: multiple jobs
 on: workflow_dispatch
 jobs:
-  first_job:
-    needs: second_job
+  checkout:
     runs-on: ubuntu-latest
     steps:
-      - name: print greeting
-        run: echo "hello world"
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: list the code cloned
+        run: |
+          ls -a
+          ls .github/workflows
+  build-job:
+    needs: checkout
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.9.1
+        with:
+          node-version: 20 
+      - name: check node installation
+        run: node -v
+      - name: build application
+        run: echo "build is completed"
 
-  second_job:
+  deploy:
+    needs: build-job
     runs-on: ubuntu-latest
     steps:
-      - name: print date
-        run: date
-    
+      - name: Setup NGINX service for Linux/macOS/Windows
+        uses: nyurik/action-setup-nginx@v1.1
+        with:
+          port: 80
+      - name: deploy application
+        run: echo "deployment is done"

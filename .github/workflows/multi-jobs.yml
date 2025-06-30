@@ -11,6 +11,8 @@ jobs:
   checkout:
     runs-on: ubuntu-latest
     steps:
+      - name: print env choosed
+        run: echo "deploying into ${{ inputs.env }} environment"
       - name: Checkout
         uses: actions/checkout@v4.2.2
       - name: list the code cloned

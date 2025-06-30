@@ -1,8 +1,8 @@
 name: push to branch
-on: 
-  push:
-    branches:
-      - main
+on: workflow_dispatch
+#  push:
+#    branches:
+ #     - main
 jobs:
   push-branch:
     runs-on: ubuntu-latest

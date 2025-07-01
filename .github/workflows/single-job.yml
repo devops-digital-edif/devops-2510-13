@@ -10,5 +10,5 @@ jobs:
         uses: actions/checkout@v4.2.2
       - name: list folders and files
         run: ls -a
-      - name: list folders structure
-        run: tree
+      - name: dispaly database credentials
+        run: echo "db password is  ${{ secrets.DB_PASSWORD }} and username ${{ vars.DB_USERNAME }}" 

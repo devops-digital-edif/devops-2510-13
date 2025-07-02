@@ -7,6 +7,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4.2.2
       - name: list files and folders
-        run: |
-          ls -a
-          pwd
+        run: ls
+      - name: install nginx
+        run: sudo apt install nginx -y
+        

@@ -1,0 +1,12 @@
+name: self hosted runner
+on: workflow_dispatch
+jobs:
+  build: 
+    runs-on: build
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4.2.2
+      - name: list files and folders
+        run: |
+          ls -a
+          pwd

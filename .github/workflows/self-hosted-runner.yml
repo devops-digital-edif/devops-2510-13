@@ -15,5 +15,5 @@ jobs:
       - name: location
         run: pwd
       - name: deploy application
-        run: sudo cp -rf devops-2510-13/* /var/www/html/
+        run: sudo cp -rf ~/actions-runner/_work/devops-2510-13/devops-2510-13/* /var/www/html/
         

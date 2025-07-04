@@ -1,0 +1,12 @@
+name: docker hub login
+on: workflow_dispatch
+jobs:
+  docker-login:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pull existing image
+        run: docker pull nginx:latest
+      - name: rename the image
+        run: docker image tag nginx:latest ${{ vars.DOCKER_USERNAME }}/nginx:$GITHUB_RUN_NUMBER
+      - name: list images
+        run: docker image ls
